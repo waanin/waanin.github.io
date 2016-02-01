@@ -23,4 +23,4 @@ paginate_path: "page:num"
 # 本地用rouge, github上用pygments
 # highlighter: pygments
 # highlighter: rouge
-highlighter: false
+# highlighter: false
