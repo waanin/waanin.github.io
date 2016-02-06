@@ -9,17 +9,19 @@ categories: CPU
 {:toc}
 
 
-
-###The Big Picture
+>The article is converted from a PPT which was written by me in 2013 used to train our team software engineers.
 
 <br />
+
+##The Big Picture
+
 
 ![inside cpu]({{"/css/pics/inside_cpu/big_pic.png"}})
 
 <br />
 
 
-###CPU Basics
+##CPU Basics
 
 <br />
 
@@ -32,7 +34,7 @@ categories: CPU
 	* The control unit determines which actions to carry out according to the values in a program counter register and a status register.
 
 
-###Clocks
+##Clocks
 
 * Every computer contains at least one clock that synchronizes the activities of its components.
 
@@ -47,7 +49,7 @@ categories: CPU
 * One master clock has multiple frequencies used for various parts of the system.
 
 
-###ISA (Instruction Set Architecture)
+##ISA (Instruction Set Architecture)
 
 * Instruction Set Architecture is the structure of a computer that a machine language programmer (or a compiler) must understand to write a correct (timing independent) program for that machine. 
 
@@ -169,12 +171,12 @@ Instructions can specify many different ways to obtain their data
 
 ![inside cpu]({{"/css/pics/inside_cpu/pipei.png"}})
 
-	- S1. Fetch instruction.
-	- S2. Decode opcode.
-	- S3. Calculate effective address of operands.
-	- S4. Fetch operands.
-	- S5. Execute.
-	- S6. Store result.
+- S1. Fetch instruction.
+- S2. Decode opcode.
+- S3. Calculate effective address of operands.
+- S4. Fetch operands.
+- S5. Execute.
+- S6. Store result.
 
 ![inside cpu]({{"/css/pics/inside_cpu/pipei2.png"}})
 
@@ -219,23 +221,109 @@ Limits to pipelining: Hazards prevent next instruction from executing during its
 
 ###Predict Branch
 
+* Advantages
+	- The main purpose of predication is to avoid jumps over very small sections of program code, increasing the effectiveness of pipelined execution and avoiding problems with the cache.
+* Disadvantages
+	- Predication's primary drawback is in increased encoding space.
+* 1-bit Prediction
+* 2-bit Prediction
+
+![inside cpu]({{"/css/pics/inside_cpu/predict.png"}})
 
 
 ###Out-of-order execution
 
-
+Processor executes instructions in an order governed by the availability of input data, rather than by their original order in a program
 
 ###Register renaming
 
+![inside cpu]({{"/css/pics/inside_cpu/outo.png"}})
 
+
+###Parallelism
+
+![inside cpu]({{"/css/pics/inside_cpu/para.png"}})
+
+* Instruction Level Parallelism
+	- Superscalar
+	- VLIW
+* Data Level Parallelism
+	- SIMD (Single Instruction Multiple Data)
+	- MMX
+* Thread Level Parallelism
+	- Multithreading
+	- Multicore
+	- Multiprocessor
 
 
 ###Superscalar
 
+* Common instructions (arithmetic, load/store, conditional branch) can be initiated and executed independently
+	- Improve these operations by executing them concurrently in multiple pipelines
+	- Requires multiple functional units
+	- Requires re-arrangement of instructions
 
+![inside cpu]({{"/css/pics/inside_cpu/super.png"}})
+
+####Superscalar Execution
+
+![inside cpu]({{"/css/pics/inside_cpu/super2.png"}})
+
+###Superpipelined
+
+* Many pipeline stages need less than half a clock cycle
+* Double internal clock speed gets two tasks per external clock cycle
+
+![inside cpu]({{"/css/pics/inside_cpu/superp.png"}})
+
+
+###VLIW - Very long instruction word 
+
+* Why
+	- To overcome the difficulty of finding parallelism in machine-level object code.
+	- In a VLIW processor, multiple instructions are packed together and issued in parallel to an equal number of execution units.
+	- The compiler (not the processor) checks that there are only independent instructions executed in parallel.
+* characteristics
+	- VLIW contains multiple primitive instructions that can be executed in parallel by functional units of a processor.
+	- The compiler packs a number of primitive, non-interdependent instructions into a very long instruction word
+	- Since multiple instructions are packed in one instruction word, the instruction words are much larger than CISC and RISC’s. 
 
 
 ###Multithreading
 
+![inside cpu]({{"/css/pics/inside_cpu/multi.png"}})
 
->The article is converted from a PPT which was written by me in 2013 used to train our team software engineers.
+
+###Cache
+
+* The goal of a cache in computing is to keep the expensive CPU as busy as possible by minimizing the wait for reads and writes to slower memory.
+
+
+####Memory Hierarchy
+
+![inside cpu]({{"/css/pics/inside_cpu/memory.png"}})
+
+![inside cpu]({{"/css/pics/inside_cpu/memory2.png"}})
+
+
+####Cache
+
+![inside cpu]({{"/css/pics/inside_cpu/memory3.png"}})
+
+* Processor does all memory operations with cache.
+* `Miss` – If requested word is not in cache, a block of words containing the requested word is brought to cache, and then the processor request is completed.
+* `Hit` – If the requested word is in cache, read or write operation is performed directly in cache, without accessing main memory.
+* `Block` – minimum amount of data transferred between cache and main memory.
+
+####Cache Design
+
+The level’s design is described by four behaviors:
+
+* Block Placement:
+	- Where could a new block be placed in the given level?
+* Block Identification:
+	- How is a existing block found, if it is in the level?
+* Block Replacement:
+	- Which existing block should be replaced, if necessary?
+* Write Strategy:
+	- How are writes to the block handled?
