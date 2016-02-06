@@ -10,6 +10,7 @@ categories: CPU
 
 >The article is converted from a PPT which was written by me in 2013 used to train our team software engineers.
 
+
 ##The Big Picture
 
 <br />
@@ -17,6 +18,7 @@ categories: CPU
 ![git stage]({{"/css/pics/inside_cpu/big_pic.png"}})
 
 <br />
+
 
 ##CPU Basics
 
@@ -29,6 +31,7 @@ categories: CPU
 	* The datapath consists of an arithmetic-logic unit and storage units (registers) that are interconnected by a data bus that is also connected to main memory.
 	* Various CPU components perform sequenced operations according to signals provided by its control unit. 
 	* The control unit determines which actions to carry out according to the values in a program counter register and a status register.
+
 
 ##Clocks
 
@@ -43,6 +46,7 @@ categories: CPU
 	* 8 MHz clock has a cycle time of 0.125 microseconds.
 
 * One master clock has multiple frequencies used for various parts of the system.
+
 
 ##ISA (Instruction Set Architecture)
 
@@ -61,6 +65,7 @@ categories: CPU
 	* Program control instructions
 		* control transfer (jump, call, trap - jump into the operating system, return - from call or trap, conditional branch)
 
+
 ###Instruction Processing
 
 * The datapath based on data transfers required to perform instructions
@@ -68,9 +73,11 @@ categories: CPU
 
 ![git stage]({{"/css/pics/inside_cpu/instruction.png"}})
 
+
 ###Instruction Execution
 
 ![git stage]({{"/css/pics/inside_cpu/instructione.png"}})
+
 
 ###Instruction Formats
 
@@ -86,6 +93,7 @@ In designing an instruction set, consideration is given to:
 	- Choose any or all: direct, indirect or indexed
 
 ![git stage]({{"/css/pics/inside_cpu/instructionf.png"}})
+
 
 ###Addressing Modes
 
@@ -123,6 +131,7 @@ Instructions can specify many different ways to obtain their data
 
 * The CISC instruction has no option but to wait for its operands to come from the memory, potentially delaying other instructions
 
+
 ####RISC Characteristics
 
 - One instruction per cycle
@@ -141,7 +150,9 @@ Instructions can specify many different ways to obtain their data
 
 ##uArch
 
+
 ###Pipelining
+
 
 ####What Is Pipelining
 
@@ -151,6 +162,7 @@ Instructions can specify many different ways to obtain their data
 - Potential speedup = Number pipe stages
 - Unbalanced lengths of pipe stages reduces speedup
 - Time to “fill” pipeline and time to “drain” it reduces speedup
+
 
 ####Instruction-Level Pipelining
 
@@ -167,6 +179,7 @@ Instructions can specify many different ways to obtain their data
 
 ![git stage]({{"/css/pics/inside_cpu/pipei2.png"}})
 
+
 ####The Five Stages of Load
 
 ![git stage]({{"/css/pics/inside_cpu/fives.png"}})
@@ -177,6 +190,7 @@ Instructions can specify many different ways to obtain their data
 - Exec: Calculate the memory address
 - Mem: Read the data from the Data Memory
 - Wr: Write the data back to the register file
+
 
 ####Pipeline Hurdles
 
@@ -190,6 +204,7 @@ Limits to pipelining: Hazards prevent next instruction from executing during its
 * `Control hazards`: Pipelining of branches & other instructions  that change the PC 
 	- one instruction affects which instruction is next
 * Common solution is to stall the pipeline until the hazard  is resolved, inserting one or more “bubbles” in the pipeline
+
 
 ####Insert “Bubble” into the Pipeline
 
