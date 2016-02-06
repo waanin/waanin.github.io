@@ -8,14 +8,13 @@ categories: CPU
 * content
 {:toc}
 
->The article is converted from a PPT which was written by me in 2013 used to train our team software engineers.
 
 
 ##The Big Picture
 
 <br />
 
-![git stage]({{"/css/pics/inside_cpu/big_pic.png"}})
+![inside cpu]({{"/css/pics/inside_cpu/big_pic.png"}})
 
 <br />
 
@@ -54,7 +53,7 @@ categories: CPU
 
 * ISA is the set of all instructions that the microprocessor can execute
 
-![git stage]({{"/css/pics/inside_cpu/isa.png"}})
+![inside cpu]({{"/css/pics/inside_cpu/isa.png"}})
 
 
 * The set of instructions executed by a modern processor may include:
@@ -71,12 +70,12 @@ categories: CPU
 * The datapath based on data transfers required to perform instructions
 * A controller causes the right transfers to happen
 
-![git stage]({{"/css/pics/inside_cpu/instruction.png"}})
+![inside cpu]({{"/css/pics/inside_cpu/instruction.png"}})
 
 
 ###Instruction Execution
 
-![git stage]({{"/css/pics/inside_cpu/instructione.png"}})
+![inside cpu]({{"/css/pics/inside_cpu/instructione.png"}})
 
 
 ###Instruction Formats
@@ -92,7 +91,7 @@ In designing an instruction set, consideration is given to:
 * Addressing modes.
 	- Choose any or all: direct, indirect or indexed
 
-![git stage]({{"/css/pics/inside_cpu/instructionf.png"}})
+![inside cpu]({{"/css/pics/inside_cpu/instructionf.png"}})
 
 
 ###Addressing Modes
@@ -121,7 +120,7 @@ Instructions can specify many different ways to obtain their data
 	>RISC – Reduced Instruction Set Computers
 
 
-![git stage]({{"/css/pics/inside_cpu/risc.png"}})
+![inside cpu]({{"/css/pics/inside_cpu/risc.png"}})
 
 
 * Addition of two operands from memory, with result written in memory, in RISC and CISC architectures
@@ -145,7 +144,7 @@ Instructions can specify many different ways to obtain their data
 
 ###Architecture Implementation
 
-![git stage]({{"/css/pics/inside_cpu/archm.png"}})
+![inside cpu]({{"/css/pics/inside_cpu/archim.png"}})
 
 
 ##uArch
@@ -168,7 +167,7 @@ Instructions can specify many different ways to obtain their data
 
 - For every clock cycle, one small step is carried out, and the stages are overlapped.
 
-![git stage]({{"/css/pics/inside_cpu/pipei.png"}})
+![inside cpu]({{"/css/pics/inside_cpu/pipei.png"}})
 
 	- S1. Fetch instruction.
 	- S2. Decode opcode.
@@ -177,12 +176,12 @@ Instructions can specify many different ways to obtain their data
 	- S5. Execute.
 	- S6. Store result.
 
-![git stage]({{"/css/pics/inside_cpu/pipei2.png"}})
+![inside cpu]({{"/css/pics/inside_cpu/pipei2.png"}})
 
 
 ####The Five Stages of Load
 
-![git stage]({{"/css/pics/inside_cpu/fives.png"}})
+![inside cpu]({{"/css/pics/inside_cpu/fives.png"}})
 
 - Ifetch: Instruction Fetch
 	- Fetch the instruction from the Instruction Memory
@@ -208,14 +207,14 @@ Limits to pipelining: Hazards prevent next instruction from executing during its
 
 ####Insert “Bubble” into the Pipeline
 
-![git stage]({{"/css/pics/inside_cpu/pipeb.png"}})
+![inside cpu]({{"/css/pics/inside_cpu/pipeb.png"}})
 
 
 ####Data hazards
 
-![git stage]({{"/css/pics/inside_cpu/piped.png"}})
+![inside cpu]({{"/css/pics/inside_cpu/piped.png"}})
 
-![git stage]({{"/css/pics/inside_cpu/piped2.png"}})
+![inside cpu]({{"/css/pics/inside_cpu/piped2.png"}})
 
 
 ###Predict Branch
@@ -237,3 +236,6 @@ Limits to pipelining: Hazards prevent next instruction from executing during its
 
 
 ###Multithreading
+
+
+>The article is converted from a PPT which was written by me in 2013 used to train our team software engineers.
