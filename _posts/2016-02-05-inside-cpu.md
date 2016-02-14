@@ -11,26 +11,20 @@ categories: CPU
 
 >The article is converted from a PPT which was written by me in 2013 used to train our team software engineers.
 
-<br />
 
 ##The Big Picture
 
-
 ![inside cpu]({{"/css/pics/inside_cpu/big_pic.png"}})
-
-<br />
 
 
 ##CPU Basics
-
-<br />
 
 * The computer’s CPU fetches, decodes, and executes program instructions.
 
 * The two principal parts of the CPU are the datapath and the control unit.
 
 	* The datapath consists of an arithmetic-logic unit and storage units (registers) that are interconnected by a data bus that is also connected to main memory.
-	* Various CPU components perform sequenced operations according to signals provided by its control unit. 
+	* Various CPU components perform sequenced operations according to signals provided by its control unit.
 	* The control unit determines which actions to carry out according to the values in a program counter register and a status register.
 
 
@@ -51,7 +45,7 @@ categories: CPU
 
 ##ISA (Instruction Set Architecture)
 
-* Instruction Set Architecture is the structure of a computer that a machine language programmer (or a compiler) must understand to write a correct (timing independent) program for that machine. 
+* Instruction Set Architecture is the structure of a computer that a machine language programmer (or a compiler) must understand to write a correct (timing independent) program for that machine.
 
 * ISA is the set of all instructions that the microprocessor can execute
 
@@ -111,7 +105,7 @@ Instructions can specify many different ways to obtain their data
 >On a CISC machine, all addressing modes are generally available to all instructions
 
 
-###RISC vs. CISC 
+###RISC vs. CISC
 
 * The believe that better performance would be obtained by reducing the number of instruction required to implement a program, lead to design of processors with very complex instructions (CISC)
 
@@ -198,11 +192,11 @@ Instructions can specify many different ways to obtain their data
 Limits to pipelining: Hazards prevent next instruction from executing during its designated clock cycle.
 
 * `Structural hazards`: HW cannot support this combination of instructions
-	- two different instructions use same h/w in same cycle	
+	- two different instructions use same h/w in same cycle
 * `Data hazards`: Instruction depends on result of prior instruction still in the pipeline
 	- two different instructions use same storage
-	- must appear as if the instructions execute in correct order	
-* `Control hazards`: Pipelining of branches & other instructions  that change the PC 
+	- must appear as if the instructions execute in correct order
+* `Control hazards`: Pipelining of branches & other instructions  that change the PC
 	- one instruction affects which instruction is next
 * Common solution is to stall the pipeline until the hazard  is resolved, inserting one or more “bubbles” in the pipeline
 
@@ -277,7 +271,7 @@ Processor executes instructions in an order governed by the availability of inpu
 ![inside cpu]({{"/css/pics/inside_cpu/superp.png"}})
 
 
-###VLIW - Very long instruction word 
+###VLIW - Very long instruction word
 
 * Why
 	- To overcome the difficulty of finding parallelism in machine-level object code.
@@ -286,7 +280,7 @@ Processor executes instructions in an order governed by the availability of inpu
 * characteristics
 	- VLIW contains multiple primitive instructions that can be executed in parallel by functional units of a processor.
 	- The compiler packs a number of primitive, non-interdependent instructions into a very long instruction word
-	- Since multiple instructions are packed in one instruction word, the instruction words are much larger than CISC and RISC’s. 
+	- Since multiple instructions are packed in one instruction word, the instruction words are much larger than CISC and RISC’s.
 
 
 ###Multithreading
@@ -385,6 +379,3 @@ The level’s design is described by four behaviors:
 * One solution is to always flush the cache by forcing the dirty data to be written back to memory before a DMA transfer takes place
 
 * MESI
-
-
-
