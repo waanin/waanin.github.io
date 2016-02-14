@@ -74,7 +74,7 @@ categories: CPU
 ![inside cpu]({{"/css/pics/inside_cpu/instructione.png"}})
 
 
-###Instruction Formats
+### Instruction Formats
 
 In designing an instruction set, consideration is given to:
 
@@ -90,7 +90,7 @@ In designing an instruction set, consideration is given to:
 ![inside cpu]({{"/css/pics/inside_cpu/instructionf.png"}})
 
 
-###Addressing Modes
+### Addressing Modes
 
 Instructions can specify many different ways to obtain their data
 
@@ -105,7 +105,7 @@ Instructions can specify many different ways to obtain their data
 >On a CISC machine, all addressing modes are generally available to all instructions
 
 
-###RISC vs. CISC
+### RISC vs. CISC
 
 * The believe that better performance would be obtained by reducing the number of instruction required to implement a program, lead to design of processors with very complex instructions (CISC)
 
@@ -127,7 +127,7 @@ Instructions can specify many different ways to obtain their data
 * The CISC instruction has no option but to wait for its operands to come from the memory, potentially delaying other instructions
 
 
-####RISC Characteristics
+#### RISC Characteristics
 
 - One instruction per cycle
 - Register to register operations
@@ -138,18 +138,18 @@ Instructions can specify many different ways to obtain their data
 - More compile time/effort
 
 
-###Architecture Implementation
+### Architecture Implementation
 
 ![inside cpu]({{"/css/pics/inside_cpu/archim.png"}})
 
 
-##uArch
+## uArch
 
 
-###Pipelining
+### Pipelining
 
 
-####What Is Pipelining
+#### What Is Pipelining
 
 - Pipelining doesn’t help latency of single task, it helps throughput of entire workload
 - Pipeline rate limited by slowest pipeline stage
@@ -159,7 +159,7 @@ Instructions can specify many different ways to obtain their data
 - Time to “fill” pipeline and time to “drain” it reduces speedup
 
 
-####Instruction-Level Pipelining
+#### Instruction-Level Pipelining
 
 - For every clock cycle, one small step is carried out, and the stages are overlapped.
 
@@ -175,7 +175,7 @@ Instructions can specify many different ways to obtain their data
 ![inside cpu]({{"/css/pics/inside_cpu/pipei2.png"}})
 
 
-####The Five Stages of Load
+#### The Five Stages of Load
 
 ![inside cpu]({{"/css/pics/inside_cpu/fives.png"}})
 
@@ -187,7 +187,7 @@ Instructions can specify many different ways to obtain their data
 - Wr: Write the data back to the register file
 
 
-####Pipeline Hurdles
+#### Pipeline Hurdles
 
 Limits to pipelining: Hazards prevent next instruction from executing during its designated clock cycle.
 
@@ -201,19 +201,19 @@ Limits to pipelining: Hazards prevent next instruction from executing during its
 * Common solution is to stall the pipeline until the hazard  is resolved, inserting one or more “bubbles” in the pipeline
 
 
-####Insert “Bubble” into the Pipeline
+#### Insert “Bubble” into the Pipeline
 
 ![inside cpu]({{"/css/pics/inside_cpu/pipeb.png"}})
 
 
-####Data hazards
+#### Data hazards
 
 ![inside cpu]({{"/css/pics/inside_cpu/piped.png"}})
 
 ![inside cpu]({{"/css/pics/inside_cpu/piped2.png"}})
 
 
-###Predict Branch
+### Predict Branch
 
 * Advantages
 	- The main purpose of predication is to avoid jumps over very small sections of program code, increasing the effectiveness of pipelined execution and avoiding problems with the cache.
@@ -225,16 +225,16 @@ Limits to pipelining: Hazards prevent next instruction from executing during its
 ![inside cpu]({{"/css/pics/inside_cpu/predict.png"}})
 
 
-###Out-of-order execution
+### Out-of-order execution
 
 Processor executes instructions in an order governed by the availability of input data, rather than by their original order in a program
 
-###Register renaming
+### Register renaming
 
 ![inside cpu]({{"/css/pics/inside_cpu/outo.png"}})
 
 
-###Parallelism
+### Parallelism
 
 ![inside cpu]({{"/css/pics/inside_cpu/para.png"}})
 
@@ -250,7 +250,7 @@ Processor executes instructions in an order governed by the availability of inpu
 	- Multiprocessor
 
 
-###Superscalar
+### Superscalar
 
 * Common instructions (arithmetic, load/store, conditional branch) can be initiated and executed independently
 	- Improve these operations by executing them concurrently in multiple pipelines
@@ -259,11 +259,11 @@ Processor executes instructions in an order governed by the availability of inpu
 
 ![inside cpu]({{"/css/pics/inside_cpu/super.png"}})
 
-####Superscalar Execution
+#### Superscalar Execution
 
 ![inside cpu]({{"/css/pics/inside_cpu/super2.png"}})
 
-###Superpipelined
+### Superpipelined
 
 * Many pipeline stages need less than half a clock cycle
 * Double internal clock speed gets two tasks per external clock cycle
@@ -271,7 +271,7 @@ Processor executes instructions in an order governed by the availability of inpu
 ![inside cpu]({{"/css/pics/inside_cpu/superp.png"}})
 
 
-###VLIW - Very long instruction word
+### VLIW - Very long instruction word
 
 * Why
 	- To overcome the difficulty of finding parallelism in machine-level object code.
@@ -283,24 +283,24 @@ Processor executes instructions in an order governed by the availability of inpu
 	- Since multiple instructions are packed in one instruction word, the instruction words are much larger than CISC and RISC’s.
 
 
-###Multithreading
+### Multithreading
 
 ![inside cpu]({{"/css/pics/inside_cpu/multi.png"}})
 
 
-###Cache
+### Cache
 
 * The goal of a cache in computing is to keep the expensive CPU as busy as possible by minimizing the wait for reads and writes to slower memory.
 
 
-####Memory Hierarchy
+#### Memory Hierarchy
 
 ![inside cpu]({{"/css/pics/inside_cpu/memory.png"}})
 
 ![inside cpu]({{"/css/pics/inside_cpu/memory2.png"}})
 
 
-####Cache
+#### Cache
 
 ![inside cpu]({{"/css/pics/inside_cpu/memory3.png"}})
 
@@ -309,7 +309,7 @@ Processor executes instructions in an order governed by the availability of inpu
 * `Hit` – If the requested word is in cache, read or write operation is performed directly in cache, without accessing main memory.
 * `Block` – minimum amount of data transferred between cache and main memory.
 
-####Cache Design
+#### Cache Design
 
 The level’s design is described by four behaviors:
 
@@ -323,27 +323,27 @@ The level’s design is described by four behaviors:
 	- How are writes to the block handled?
 
 
-####Cache Line
+#### Cache Line
 
 ![inside cpu]({{"/css/pics/inside_cpu/cacheline.png"}})
 
 
-####Three Major Placement Schemes
+#### Three Major Placement Schemes
 
 ![inside cpu]({{"/css/pics/inside_cpu/threecache.png"}})
 
 
-####Direct-Mapped Cache
+#### Direct-Mapped Cache
 
 ![inside cpu]({{"/css/pics/inside_cpu/drcache.png"}})
 
 
-####Two-Way Set-Associative Cache
+#### Two-Way Set-Associative Cache
 
 ![inside cpu]({{"/css/pics/inside_cpu/twocache.png"}})
 
 
-####Replacement Strategies
+#### Replacement Strategies
 
 * Which existing block do we replace, when a new block comes in?
 
@@ -358,7 +358,7 @@ The level’s design is described by four behaviors:
 		- Least-Recently Used (LRU)
 
 
-####Writing to Memory
+#### Writing to Memory
 
 * Cache and memory become inconsistent when data is written into cache, but not to memory – the cache coherence problem.
 * Strategies to handle inconsistent data:
@@ -373,7 +373,7 @@ The level’s design is described by four behaviors:
 ![inside cpu]({{"/css/pics/inside_cpu/cachec.png"}})
 
 
-####Cache Coherence
+#### Cache Coherence
 
 * Also, before a DMA transfer, need to determine if information in main memory is up-to-date with information in cache. (write back protocol)
 * One solution is to always flush the cache by forcing the dirty data to be written back to memory before a DMA transfer takes place
