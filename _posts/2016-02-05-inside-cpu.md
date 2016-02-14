@@ -8,10 +8,6 @@ categories: CPU
 * content
 {:toc}
 
-
->The article is converted from a PPT which was written by me in 2013 used to train our team software engineers.
-
-
 ##The Big Picture
 
 ![inside cpu]({{"/css/pics/inside_cpu/big_pic.png"}})
@@ -379,3 +375,6 @@ The level’s design is described by four behaviors:
 * One solution is to always flush the cache by forcing the dirty data to be written back to memory before a DMA transfer takes place
 
 * MESI
+
+
+>The article is converted from a PPT which was written by me in 2013 used to train our team software engineers.
