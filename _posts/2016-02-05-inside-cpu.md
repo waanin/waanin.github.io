@@ -327,3 +327,64 @@ The level’s design is described by four behaviors:
 	- Which existing block should be replaced, if necessary?
 * Write Strategy:
 	- How are writes to the block handled?
+
+
+####Cache Line
+
+![inside cpu]({{"/css/pics/inside_cpu/cacheline.png"}})
+
+
+####Three Major Placement Schemes
+
+![inside cpu]({{"/css/pics/inside_cpu/threecache.png"}})
+
+
+####Direct-Mapped Cache
+
+![inside cpu]({{"/css/pics/inside_cpu/drcache.png"}})
+
+
+####Two-Way Set-Associative Cache
+
+![inside cpu]({{"/css/pics/inside_cpu/twocache.png"}})
+
+
+####Replacement Strategies
+
+* Which existing block do we replace, when a new block comes in?
+
+* With a direct-mapped cache:
+	- There’s only one choice!  (Same as placement)
+
+* With a (fully- or set-) associative cache:
+	- If any “way” in the set is empty, pick one of those
+	- Otherwise, there are many possible strategies:
+		- Random: Simple, fast, and fairly effective
+		- FIFO
+		- Least-Recently Used (LRU)
+
+
+####Writing to Memory
+
+* Cache and memory become inconsistent when data is written into cache, but not to memory – the cache coherence problem.
+* Strategies to handle inconsistent data:
+	- Write-through
+		-Write to memory and cache simultaneously always.
+		- Write to memory is ~100 times slower than to (L1) cache.
+	- Write-back
+		- Write to cache and mark block as “dirty”.
+		- Write to memory occurs later, when dirty block is cast-out from the cache to make room for another block
+
+
+![inside cpu]({{"/css/pics/inside_cpu/cachec.png"}})
+
+
+####Cache Coherence
+
+* Also, before a DMA transfer, need to determine if information in main memory is up-to-date with information in cache. (write back protocol)
+* One solution is to always flush the cache by forcing the dirty data to be written back to memory before a DMA transfer takes place
+
+* MESI
+
+
+
