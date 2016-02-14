@@ -1,9 +1,13 @@
 ---
 layout: post
-title:  "Processor Architecture introduction PPT"
+title:  "PPT for Processor Architecture"
 date:   2016-02-14 12:08:54
 categories: CPU
 ---
+
+* content
+{:toc}
+
 
 
 ![inside cpu ppt]({{"/css/pics/inside_cpu_ppt/1.png"}})
