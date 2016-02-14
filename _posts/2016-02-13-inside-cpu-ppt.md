@@ -5,8 +5,6 @@ date:   2016-02-13 12:08:54
 categories: CPU
 ---
 
-### Processor Architecture introduction
-
 ![inside cpu ppt]({{"/css/pics/inside_cpu_ppt/1.png"}})
 
 ![inside cpu ppt]({{"/css/pics/inside_cpu_ppt/2.png"}})
