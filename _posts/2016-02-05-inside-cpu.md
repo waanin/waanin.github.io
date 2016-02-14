@@ -12,12 +12,12 @@ categories: CPU
 >The article is converted from a PPT which was written by me in 2013 used to train our team software engineers.
 
 
-##The Big Picture
+## The Big Picture
 
 ![inside cpu]({{"/css/pics/inside_cpu/big_pic.png"}})
 
 
-##CPU Basics
+## CPU Basics
 
 * The computer’s CPU fetches, decodes, and executes program instructions.
 
@@ -28,7 +28,7 @@ categories: CPU
 	* The control unit determines which actions to carry out according to the values in a program counter register and a status register.
 
 
-##Clocks
+## Clocks
 
 * Every computer contains at least one clock that synchronizes the activities of its components.
 
@@ -43,7 +43,7 @@ categories: CPU
 * One master clock has multiple frequencies used for various parts of the system.
 
 
-##ISA (Instruction Set Architecture)
+## ISA (Instruction Set Architecture)
 
 * Instruction Set Architecture is the structure of a computer that a machine language programmer (or a compiler) must understand to write a correct (timing independent) program for that machine.
 
@@ -61,7 +61,7 @@ categories: CPU
 		* control transfer (jump, call, trap - jump into the operating system, return - from call or trap, conditional branch)
 
 
-###Instruction Processing
+### Instruction Processing
 
 * The datapath based on data transfers required to perform instructions
 * A controller causes the right transfers to happen
@@ -69,7 +69,7 @@ categories: CPU
 ![inside cpu]({{"/css/pics/inside_cpu/instruction.png"}})
 
 
-###Instruction Execution
+### Instruction Execution
 
 ![inside cpu]({{"/css/pics/inside_cpu/instructione.png"}})
 
