@@ -10,6 +10,8 @@ categories: CPU
 
 ##The Big Picture
 
+The computer’s CPU fetches, decodes, and executes program instructions.
+
 ![inside cpu]({{"/css/pics/inside_cpu/big_pic.png"}})
 
 
