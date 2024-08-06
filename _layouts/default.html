@@ -1,39 +1,53 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
   {% include head.html %}
 
- <!--  <body data-spy="scroll" data-target="#myAffix"> -->
   <body>
-
     {% include header.html %}
 
-
-    <div id="main" class="container main">
+    <main id="main" class="container">
       {{ content }}
-    </div>
+    </main>
 
-
-    <div id="top" data-toggle="tooltip" data-placement="left" title="TOP">
-      <a href="javascript:;">
-        <div class="arrow"></div>
-        <div class="stick"></div>
-      </a>
-    </div>
+    <button id="top" class="back-to-top" title="Back to top">
+      <span class="arrow"></span>
+      <span class="stick"></span>
+    </button>
 
     {% include footer.html %}
 
-<!-- open with new window -->
-  <script type="text/javascript">
-    function addBlankTargetForLinks () {
-      $('a[href^="http"]').each(function(){
-          $(this).attr('target', '_blank');
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Back to top button functionality
+        var topButton = document.getElementById('top');
+        topButton.addEventListener('click', function() {
+          window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+
+        // Add target="_blank" to external links
+        function addBlankTargetForLinks() {
+          document.querySelectorAll('a[href^="http"]').forEach(function(link) {
+            if (link.hostname !== window.location.hostname) {
+              link.target = '_blank';
+              link.rel = 'noopener noreferrer';
+            }
+          });
+        }
+
+        // Initial call
+        addBlankTargetForLinks();
+
+        // Use MutationObserver for dynamic content
+        var observer = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type === 'childList') {
+              addBlankTargetForLinks();
+            }
+          });
+        });
+
+        observer.observe(document.body, { childList: true, subtree: true });
       });
-    }
-    // active when inserting DOM
-    $(document).bind('DOMNodeInserted', function(event) {
-      addBlankTargetForLinks();
-    });
-  </script>
+    </script>
   </body>
 </html>
