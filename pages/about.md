@@ -12,6 +12,6 @@ icon: glyphicon-heart
 
 ### Contact me
 
-* email：[waanin@aol.com](mailto:{{ site.email }})
+* email：[mimallaus.gmail.com](mailto:{{ site.email }})
 
 ---
